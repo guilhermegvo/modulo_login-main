@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/styles.css">
+    <title>Home</title>
+
+</head>
+<body>
+    <template id="custom-header-template">
+        <nav>
+            <div class="logo">
+                <img src="/static/logo.png" alt="Logo"/>
+            </div>
+            <header>
+                <ul>
+                    <li><a href="/templates/custom-header.html">Página Inicial</a></li>
+                    <li class="dropdown">
+                        <a href="#">Cadastro</a>
+                        <div class="dropdown-menu">
+                            <a href="/templates/cadastro_empresa.html">Cadastro de Empresa</a>
+                            <a href="/templates/cadastro_cliente.html">Cadastro de Cliente</a>
+                            <a href="/templates/cadastro_produto.html">Cadastro de Produtos</a>
+                            <a href="/templates/cadastro_venda.html">Cadastro de Vendas</a>
+                        </div>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#">Contas</a>
+                        <div class="dropdown-menu">
+                            <a href="/templates/contas_pagar.html">Contas a Pagar</a>
+                            <a href="/templates/contas_receber.html">Contas a Receber</a>
+                        </div>
+                    </li>
+                    <li><a href="/templates/controle_estoque.html">Controle de Estoque</a></li>
+                </ul>
+            </header>
+        </nav>
+    </template>
+    <script>
+        class CustomHeader extends HTMLElement {
+            constructor() {
+                super();
+
+                // Crie um shadow DOM para o elemento personalizado
+                this.attachShadow({ mode: 'open' });
+
+                // Clone o conteúdo do template dentro do shadow DOM
+                const template = document.getElementById('custom-header-template');
+                const content = document.importNode(template.content, true);
+                this.shadowRoot.appendChild(content);
+            }
+        }
+
+        // Registre o elemento personalizado
+        customElements.define('custom-header', CustomHeader);
+    </script>
+</body>
+</html>
