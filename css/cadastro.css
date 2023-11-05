@@ -18,7 +18,11 @@ body {
 body iframe{
     min-height: 1vh;
     z-index: 1;
+    position: absolute;
+    top: 0;
+    left: 0;
 }
+
 main {
     width: 98vw;
     display: flex;
@@ -26,17 +30,18 @@ main {
     justify-content: center;
 }
 
-main.alinhamento {
+main .alinhamento {
     height: 70%;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    margin-top: 2.5rem;
 }
 
 main h1 {
     color: #8880fe;
-    font-size: 3rem;
+    font-size: 2.5rem;
     padding-top: 50px;
 }
 
